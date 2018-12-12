@@ -1,0 +1,1577 @@
+#VRML_SIM R2018b utf8
+WorldInfo {
+  info [
+    "Autonomous Vehicle Simulation"
+    "The simple controller example uses an on-board camera to follow the yellow road lines and a SICK sensor to avoid the obstacles."
+    "The control of the vehicle is done using the driver library."
+    "The vehicle based on the Car PROTO is modelled with realistic physics properties: motor torques, body mass, friction forces, suspensions, etc."
+  ]
+  title "City"
+  ERP 0.6
+  basicTimeStep 16
+  lineScale 1
+  contactProperties [
+    ContactProperties {
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-5
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "CitroenCZeroWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-5
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "ToyotaPriusWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-5
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "LincolnMKZWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-5
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "RangeRoverSportSVRWheels"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-5
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+  ]
+}
+DEF VIEWPOINT Viewpoint {
+  orientation -0.00315192961928885 0.9902110774706349 0.13954242148579496 3.096867109955905
+  position 124.84251177853824 9.50985755092579 -68.70502266120718
+  near 1
+  follow "vehicle"
+  followOrientation TRUE
+  followSmoothness 0
+}
+Fog {
+  visibilityRange 80
+}
+LincolnMKZSimple {
+  translation -346 0.4 100
+  rotation 0 1 0 4.0578896938995745
+  name "vehicle(5)"
+}
+LincolnMKZSimple {
+  translation -318.9121825121007 0.4 -139.97566138246836
+  rotation 0 1 0 4.0578896938995745
+  name "vehicle(7)"
+}
+TruckSimple {
+  translation -373.9166079722364 2.30594778373843 -44
+  rotation 0 0 1 1.7016996938995748
+  name "vehicle(4)"
+}
+ToyotaPriusSimple {
+  translation -363 0.4 38
+  name "vehicle(3)"
+}
+ToyotaPriusSimple {
+  translation -353.3999999999998 0.4 -86.8
+  name "vehicle(6)"
+}
+RangeRoverSportSVRSimple {
+  translation -383 0.7999999999999999 -25
+  rotation -0.7071067811865456 -5.0614037706749085e-8 -0.7071067811865476 0.5236003061004253
+  name "vehicle(2)"
+}
+BmwX5Simple {
+  translation -369.4999999999998 1.1000003567574417 0
+  rotation 0 0 1 -4.712389693899574
+  name "vehicle(1)"
+}
+BmwX5Simple {
+  translation -295.11000000001826 1.0999479919000812 -192.63999999999996
+  rotation 0 0 1 -4.712389693899574
+  name "vehicle(8)"
+}
+CitroenCZero {
+  translation 125.21049757221931 0.3 -50
+  rotation 0 -1 0 0
+  controller "milestone2_part2_controller"
+  sensorsSlotTop [
+    VelodyneHDL-64E {
+      translation 0 0.1 0
+    }
+    Camera {
+      translation 0 0 -0.4
+      width 640
+      height 480
+    }
+  ]
+}
+StopSign {
+  translation -326 0 171
+}
+Supervisor {
+  controller "project_supervisor"
+}
+AddLaneRoadSegment {
+  translation -168 0.02 -62
+  rotation 0 1 0 -1.5708003061004252
+  name "road(15)"
+  roadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+}
+SuburbanHouse {
+  translation -325.6608188983661 0 179.23767161290897
+  rotation 0 1 0 3.5342896938995745
+}
+CurvedRoadSegment {
+  translation -268 0.03 52
+  rotation 0 1 0 -1.5707996938995747
+  roadBorderWidth [
+    2.5
+  ]
+  rightBarrier TRUE
+  leftBarrier TRUE
+}
+CurvedRoadSegment {
+  translation -206 0.03 -70.25
+  rotation 0 1 0 -1.5707996938995747
+  name "road(11)"
+  width 10.5
+  numberOfLanes 3
+  roadBorderWidth [
+    2.5
+  ]
+  rightBarrier TRUE
+  leftBarrier TRUE
+}
+CurvedRoadSegment {
+  translation 272 0.03 -10
+  name "road(7)"
+  roadBorderWidth [
+    2.5
+  ]
+  rightBarrier TRUE
+  leftBarrier TRUE
+}
+CurvedRoadSegment {
+  translation 272 0.03 114
+  name "road(4)"
+  roadBorderWidth [
+    2.5
+  ]
+  rightBarrier TRUE
+  leftBarrier TRUE
+}
+CurvedRoadSegment {
+  translation -72 0.03 239
+  name "road(6)"
+  roadBorderWidth [
+    2.5
+  ]
+  rightBarrier TRUE
+  leftBarrier TRUE
+}
+CurvedRoadSegment {
+  translation -172 0.03 239
+  rotation 0 1 0 -1.5707996938995747
+  name "road(13)"
+  roadBorderWidth [
+    2.5
+  ]
+  rightBarrier TRUE
+  leftBarrier TRUE
+}
+CurvedRoadSegment {
+  translation -172 0.03 134
+  rotation 0 1 0 3.141592653589793
+  name "road(14)"
+  roadBorderWidth [
+    2.5
+  ]
+  rightBarrier TRUE
+  leftBarrier TRUE
+}
+CurvedRoadSegment {
+  translation -10 0.03 -210
+  rotation 0 1 0 1.5707996938995747
+  name "road(9)"
+  roadBorderWidth [
+    2.5
+  ]
+  rightBarrier TRUE
+  leftBarrier TRUE
+}
+CurvedRoadSegment {
+  translation 114 0.03 -210
+  rotation 0 1 0 1.5707996938995747
+  name "road(2)"
+  roadBorderWidth [
+    2.5
+  ]
+  rightBarrier TRUE
+  leftBarrier TRUE
+}
+CurvedRoadSegment {
+  translation -52 0.03 -210
+  rotation 0 1 0 3.14159
+  name "road(10)"
+  roadBorderWidth [
+    2.5
+  ]
+  rightBarrier TRUE
+  leftBarrier TRUE
+}
+CurvedRoadSegment {
+  translation 72 0.03 -210
+  rotation 0 1 0 3.14159
+  name "road(3)"
+  roadBorderWidth [
+    2.5
+  ]
+  rightBarrier TRUE
+  leftBarrier TRUE
+}
+CurvedRoadSegment {
+  translation 33.9 0.03 239.1
+  rotation 0 1 0 -1.0471996938995747
+  name "curve_N23"
+  roadBorderWidth [
+    2.5
+  ]
+  rightBarrier TRUE
+  leftBarrier TRUE
+  curvatureRadius 34
+  totalAngle 2.094
+}
+CurvedRoadSegment {
+  translation 90.1 0.03 239.1
+  name "curve_N12"
+  roadBorderWidth [
+    2.5
+  ]
+  rightBarrier TRUE
+  leftBarrier TRUE
+  curvatureRadius 34
+  totalAngle 2.094
+}
+CurvedRoadSegment {
+  translation -268 0.03 10
+  rotation 0 1 0 3.141592653589793
+  name "road(1)"
+  roadBorderWidth [
+    2.5
+  ]
+  rightBarrier TRUE
+  leftBarrier TRUE
+}
+CurvedRoadSegment {
+  translation 272 0.03 -52
+  rotation 0 1 0 1.5708
+  name "road(8)"
+  roadBorderWidth [
+    2.5
+  ]
+  rightBarrier TRUE
+  leftBarrier TRUE
+}
+CurvedRoadSegment {
+  translation 272 0.03 72
+  rotation 0 1 0 1.5708
+  name "road(5)"
+  roadBorderWidth [
+    2.5
+  ]
+  rightBarrier TRUE
+  leftBarrier TRUE
+}
+TexturedBackground {
+  texture "noon_cloudy_mountains"
+}
+TexturedBackgroundLight {
+  castShadows FALSE
+}
+DirectionalLight {
+  direction -0.5 -0.9 -0.5
+  intensity 0.6
+}
+DirectionalLight {
+  direction 0.5 0 100
+  intensity 0.6
+}
+DEF GROUND Solid {
+  children [
+    Transform {
+      translation 124 3 124
+      children [
+        Shape {
+          appearance Appearance {
+            material DEF IDENTIFIER_1 Material {
+              diffuseColor 1 0 0
+              emissiveColor 0.2 0 0
+              shininess 1
+              specularColor 1 0 0
+            }
+          }
+          geometry Sphere {
+            radius 0.7
+            subdivision 3
+          }
+          castShadows FALSE
+          isPickable FALSE
+        }
+      ]
+    }
+    Transform {
+      translation 62 3 124
+      children [
+        Shape {
+          appearance Appearance {
+            material DEF IDENTIFIER_2 Material {
+              diffuseColor 1 0 0
+              emissiveColor 0.2 0 0
+              shininess 1
+              specularColor 1 0 0
+            }
+          }
+          geometry Sphere {
+            radius 0.7
+            subdivision 3
+          }
+          castShadows FALSE
+          isPickable FALSE
+        }
+      ]
+    }
+    Transform {
+      translation 0 3 124
+      children [
+        Shape {
+          appearance Appearance {
+            material DEF IDENTIFIER_3 Material {
+              diffuseColor 0 1 0
+              emissiveColor 0 0.2 0
+              shininess 1
+              specularColor 0 1 0
+            }
+          }
+          geometry Sphere {
+            radius 0.7
+            subdivision 3
+          }
+          castShadows FALSE
+          isPickable FALSE
+        }
+      ]
+    }
+    Transform {
+      translation -62 3 124
+      children [
+        Shape {
+          appearance Appearance {
+            material DEF IDENTIFIER_4 Material {
+              diffuseColor 0 1 0
+              emissiveColor 0 0.2 0
+              shininess 1
+              specularColor 0 1 0
+            }
+          }
+          geometry Sphere {
+            radius 0.7
+            subdivision 3
+          }
+          castShadows FALSE
+          isPickable FALSE
+        }
+      ]
+    }
+    Transform {
+      translation 124 3 62
+      children [
+        Shape {
+          appearance Appearance {
+            material DEF IDENTIFIER_5 Material {
+              diffuseColor 0 1 0
+              emissiveColor 0 0.2 0
+              shininess 1
+              specularColor 0 1 0
+            }
+          }
+          geometry Sphere {
+            radius 0.7
+            subdivision 3
+          }
+          castShadows FALSE
+          isPickable FALSE
+        }
+      ]
+    }
+    Transform {
+      translation 62 3 62
+      children [
+        Shape {
+          appearance Appearance {
+            material DEF IDENTIFIER_6 Material {
+              diffuseColor 0 1 0
+              emissiveColor 0 0.2 0
+              shininess 1
+              specularColor 0 1 0
+            }
+          }
+          geometry Sphere {
+            radius 0.7
+            subdivision 3
+          }
+          castShadows FALSE
+          isPickable FALSE
+        }
+      ]
+    }
+    Transform {
+      translation 0 3 62
+      children [
+        Shape {
+          appearance Appearance {
+            material DEF IDENTIFIER_7 Material {
+              diffuseColor 0 1 0
+              emissiveColor 0 0.2 0
+              shininess 1
+              specularColor 0 1 0
+            }
+          }
+          geometry Sphere {
+            radius 0.7
+            subdivision 3
+          }
+          castShadows FALSE
+          isPickable FALSE
+        }
+      ]
+    }
+    Transform {
+      translation -62 3 62
+      children [
+        Shape {
+          appearance Appearance {
+            material DEF IDENTIFIER_8 Material {
+              diffuseColor 0 1 0
+              emissiveColor 0 0.2 0
+              shininess 1
+              specularColor 0 1 0
+            }
+          }
+          geometry Sphere {
+            radius 0.7
+            subdivision 3
+          }
+          castShadows FALSE
+          isPickable FALSE
+        }
+      ]
+    }
+    Transform {
+      translation 124 3 0
+      children [
+        Shape {
+          appearance Appearance {
+            material DEF IDENTIFIER_9 Material {
+              diffuseColor 0 1 0
+              emissiveColor 0 0.2 0
+              shininess 1
+              specularColor 0 1 0
+            }
+          }
+          geometry Sphere {
+            radius 0.7
+            subdivision 3
+          }
+          castShadows FALSE
+          isPickable FALSE
+        }
+      ]
+    }
+    Transform {
+      translation 62 3 0
+      children [
+        Shape {
+          appearance Appearance {
+            material DEF IDENTIFIER_10 Material {
+              diffuseColor 0 1 0
+              emissiveColor 0 0.2 0
+              shininess 1
+              specularColor 0 1 0
+            }
+          }
+          geometry Sphere {
+            radius 0.7
+            subdivision 3
+          }
+          castShadows FALSE
+          isPickable FALSE
+        }
+      ]
+    }
+    Transform {
+      translation 0 3 0
+      children [
+        Shape {
+          appearance Appearance {
+            material DEF IDENTIFIER_11 Material {
+              diffuseColor 0 1 0
+              emissiveColor 0 0.2 0
+              shininess 1
+              specularColor 0 1 0
+            }
+          }
+          geometry Sphere {
+            radius 0.7
+            subdivision 3
+          }
+          castShadows FALSE
+          isPickable FALSE
+        }
+      ]
+    }
+    Transform {
+      translation -62 3 0
+      children [
+        Shape {
+          appearance Appearance {
+            material DEF IDENTIFIER_12 Material {
+              diffuseColor 0 1 0
+              emissiveColor 0 0.2 0
+              shininess 1
+              specularColor 0 1 0
+            }
+          }
+          geometry Sphere {
+            radius 0.7
+            subdivision 3
+          }
+          castShadows FALSE
+          isPickable FALSE
+        }
+      ]
+    }
+    Transform {
+      translation 124 3 -62
+      children [
+        Shape {
+          appearance Appearance {
+            material DEF IDENTIFIER_13 Material {
+              diffuseColor 0 1 0
+              emissiveColor 0 0.2 0
+              shininess 1
+              specularColor 0 1 0
+            }
+          }
+          geometry Sphere {
+            radius 0.7
+            subdivision 3
+          }
+          castShadows FALSE
+          isPickable FALSE
+        }
+      ]
+    }
+    Transform {
+      translation 62 3 -62
+      children [
+        Shape {
+          appearance Appearance {
+            material DEF IDENTIFIER_14 Material {
+              diffuseColor 0 1 0
+              emissiveColor 0 0.2 0
+              shininess 1
+              specularColor 0 1 0
+            }
+          }
+          geometry Sphere {
+            radius 0.7
+            subdivision 3
+          }
+          castShadows FALSE
+          isPickable FALSE
+        }
+      ]
+    }
+    Transform {
+      translation 0 3 -62
+      children [
+        Shape {
+          appearance Appearance {
+            material DEF IDENTIFIER_15 Material {
+              diffuseColor 0 1 0
+              emissiveColor 0 0.2 0
+              shininess 1
+              specularColor 0 1 0
+            }
+          }
+          geometry Sphere {
+            radius 0.7
+            subdivision 3
+          }
+          castShadows FALSE
+          isPickable FALSE
+        }
+      ]
+    }
+    Transform {
+      translation -62 3 -62
+      children [
+        Shape {
+          appearance Appearance {
+            material DEF IDENTIFIER_16 Material {
+              diffuseColor 0 1 0
+              emissiveColor 0 0.2 0
+              shininess 1
+              specularColor 0 1 0
+            }
+          }
+          geometry Sphere {
+            radius 0.7
+            subdivision 3
+          }
+          castShadows FALSE
+          isPickable FALSE
+        }
+      ]
+    }
+    Shape {
+      appearance Appearance {
+        material Material {
+        }
+        texture ImageTexture {
+          url [
+            "textures/grass.jpg"
+          ]
+        }
+        textureTransform TextureTransform {
+          scale 100 100
+        }
+      }
+      geometry DEF GROUND_PLANE Plane {
+        size 2000 2000
+      }
+    }
+  ]
+  boundingObject USE GROUND_PLANE
+  locked TRUE
+}
+Road {
+  translation -216 0.03 -70
+  rotation 0 1 0 3.141592653589793
+  name "road(12)"
+  width 10.5
+  numberOfLanes 3
+  roadBorderWidth [
+    2.5
+  ]
+  rightBarrier TRUE
+  leftBarrier TRUE
+  wayPoints [
+    0 0 0
+    0 0 10
+    5 0 25
+    30 0 50
+    0 0 100
+    -20 0 105
+    -20 0 136
+    90 0 150
+    120 0 0
+    190 0 0
+    100 0 -250
+  ]
+}
+Roundabout {
+  translation 62 0.03 262
+  rotation 0 1 0 0.5235996938995747
+  innerRadius 2
+  roadNumber 3
+}
+StraightRoadSegment {
+  translation -62 0.03 130
+  name "road_N1"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 109.2
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation -182 0.03 134
+  name "road_N1(1)"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 105
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation 0 0.03 130
+  name "road_N2"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 109.2
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation 62 0.03 130
+  name "road_N3"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 119
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation 124 0.03 130
+  name "road_N4"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 109.2
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation -62 0.03 68
+  name "road_N1_b"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 50
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation 0 0.03 68
+  name "road_N2_b"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 50
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation 62 0.03 68
+  name "road_N3_b"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 50
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation 124 0.03 68
+  name "road_N0_b"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 50
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation -62 0.03 6
+  name "road_N1_c"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 50
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation 0 0.03 6
+  name "road_N2_c"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 50
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation 62 0.03 6
+  name "road_N3_c"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 50
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation 124 0.03 6
+  name "road_N4_c"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 50
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation -278 0.03 10
+  name "road_N3_b(1)"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 42
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation 282 0.03 -52
+  name "road_N3_b(2)"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 42
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation 282 0.03 72
+  name "road_N3_b(3)"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 42
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation -62 0.03 -68
+  rotation 0 1 0 3.14159
+  name "road_S1"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 142
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation 0 0.03 -68
+  rotation 0 1 0 3.14159
+  name "road_S2"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 142
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation 62 0.03 -68
+  rotation 0 1 0 3.14159
+  name "road_S3"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 142
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation 124 0.03 -68
+  rotation 0 1 0 3.14159
+  name "road_S4"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 142
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation -62 0.03 -6
+  rotation 0 1 0 3.14159
+  name "road_S1_b"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 50
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation 0 0.03 -6
+  rotation 0 1 0 3.14159
+  name "road_S2_b"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 50
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation 62 0.03 -6
+  rotation 0 1 0 3.14159
+  name "road_S3_b"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 50
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation 124 0.03 -6
+  rotation 0 1 0 3.14159
+  name "road_S4_b"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 50
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation 130 0.03 62
+  rotation 0 1 0 1.5708
+  name "road_W1"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 142
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation 130 0.03 124
+  rotation 0 1 0 1.5708
+  name "road_W1(1)"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 142
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation 130 0.03 0
+  rotation 0 1 0 1.5708
+  name "road_W2"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 142
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation 130 0.03 -62
+  rotation 0 1 0 1.5708
+  name "road_W3"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 142
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation 6 0.03 62
+  rotation 0 1 0 1.5708
+  name "road_W1_b"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 50
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation 6 0.03 124
+  rotation 0 1 0 1.5708
+  name "road_W1_b(3)"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 50
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation 68 0.03 62
+  rotation 0 1 0 1.5708
+  name "road_W1_b(1)"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 50
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation 68 0.03 124
+  rotation 0 1 0 1.5708
+  name "road_W1_b(2)"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 50
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation 6 0.03 0
+  rotation 0 1 0 1.5708
+  name "road_W2_b"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 50
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation 68 0.03 0
+  rotation 0 1 0 1.5708
+  name "road_W2_b(1)"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 50
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation 6 0.03 -62
+  rotation 0 1 0 1.5708
+  name "road_W3_b"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 50
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation 68 0.03 -62
+  rotation 0 1 0 1.5708
+  name "road_W3_b(1)"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 50
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation -68 0.03 62
+  rotation 0 1 0 -1.5708
+  name "road_E1"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 200
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation -68 0.03 124
+  rotation 0 1 0 -1.5708
+  name "road_E1(1)"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 105
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation -72 0.03 249
+  rotation 0 1 0 -1.5708
+  name "road_E1(2)"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 100
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation -68 0.03 0
+  rotation 0 1 0 -1.5708
+  name "road_E2"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 200
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation -68 0.03 -62
+  rotation 0 1 0 -1.5708
+  name "road_E3"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 100
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation -187.9 0.03 -60.25
+  rotation 0 1 0 -1.5708
+  name "road_E3(1)"
+  width 10.5
+  numberOfLanes 3
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 18.1
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation -6 0.03 62
+  rotation 0 1 0 -1.5708
+  name "road_E1_b"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 50
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation -6 0.03 124
+  rotation 0 1 0 -1.5708
+  name "road_E1_b(1)"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 50
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation -6 0.03 0
+  rotation 0 1 0 -1.5708
+  name "road_E2_b"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 50
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation -6 0.03 -62
+  rotation 0 1 0 -1.5708
+  name "road_E3_b"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 50
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation -10 0.03 -220
+  rotation 0 1 0 -1.5708
+  name "road_E3_b(1)"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 42
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+StraightRoadSegment {
+  translation 114 0.03 -220
+  rotation 0 1 0 -1.5708
+  name "road_E3_b(2)"
+  roadBorderHeight 0.152
+  startingRoadBorderWidth 2.5
+  endingRoadBorderWidth 2.5
+  rightBarrier TRUE
+  leftBarrier TRUE
+  rightSide FALSE
+  length 42
+  texture [
+    "textures/road_no_border_line.jpg"
+  ]
+}
+RoadIntersection {
+  translation -62 0.03 0
+  rotation 0 1 0 0.7853996938995746
+  name "road intersection e"
+  startRoadsLength [
+    2.5
+  ]
+  startRoadBorderHeight 0.152
+  startRoadBorderWidth 2.5
+}
+RoadIntersection {
+  translation 0 0.03 0
+  rotation 0 1 0 0.7853996938995746
+  name "road intersection c"
+  startRoadsLength [
+    2.5
+  ]
+  startRoadBorderHeight 0.152
+  startRoadBorderWidth 2.5
+}
+RoadIntersection {
+  translation 62 0.03 0
+  rotation 0 1 0 0.7853996938995746
+  name "road intersection w"
+  startRoadsLength [
+    2.5
+  ]
+  startRoadBorderHeight 0.152
+  startRoadBorderWidth 2.5
+}
+RoadIntersection {
+  translation 124 0.03 0
+  rotation 0 1 0 0.7853996938995746
+  name "road intersection w(1)"
+  startRoadsLength [
+    2.5
+  ]
+  startRoadBorderHeight 0.152
+  startRoadBorderWidth 2.5
+}
+RoadIntersection {
+  translation -62 0.03 62
+  rotation 0 1 0 0.7853996938995746
+  name "road intersection ne"
+  startRoadsLength [
+    2.5
+  ]
+  startRoadBorderHeight 0.152
+  startRoadBorderWidth 2.5
+}
+RoadIntersection {
+  translation -62 0.03 124
+  rotation 0 1 0 0.7853996938995746
+  name "road intersection ne(1)"
+  startRoadsLength [
+    2.5
+  ]
+  startRoadBorderHeight 0.152
+  startRoadBorderWidth 2.5
+}
+RoadIntersection {
+  translation 0 0.03 62
+  rotation 0 1 0 0.7853996938995746
+  name "road intersection n"
+  startRoadsLength [
+    2.5
+  ]
+  startRoadBorderHeight 0.152
+  startRoadBorderWidth 2.5
+}
+RoadIntersection {
+  translation 0 0.03 124
+  rotation 0 1 0 0.7853996938995746
+  name "road intersection n(1)"
+  startRoadsLength [
+    2.5
+  ]
+  startRoadBorderHeight 0.152
+  startRoadBorderWidth 2.5
+}
+RoadIntersection {
+  translation 62 0.03 62
+  rotation 0 1 0 0.7853996938995746
+  name "road intersection nw"
+  startRoadsLength [
+    2.5
+  ]
+  startRoadBorderHeight 0.152
+  startRoadBorderWidth 2.5
+}
+RoadIntersection {
+  translation 62 0.03 124
+  rotation 0 1 0 0.7853996938995746
+  name "road intersection nw(3)"
+  startRoadsLength [
+    2.5
+  ]
+  startRoadBorderHeight 0.152
+  startRoadBorderWidth 2.5
+}
+RoadIntersection {
+  translation 124 0.03 62
+  rotation 0 1 0 0.7853996938995746
+  name "road intersection nw(1)"
+  startRoadsLength [
+    2.5
+  ]
+  startRoadBorderHeight 0.152
+  startRoadBorderWidth 2.5
+}
+RoadIntersection {
+  translation 124 0.03 124
+  rotation 0 1 0 0.7853996938995746
+  name "road intersection nw(2)"
+  startRoadsLength [
+    2.5
+  ]
+  startRoadBorderHeight 0.152
+  startRoadBorderWidth 2.5
+}
+RoadIntersection {
+  translation -62 0.03 -62
+  rotation 0 1 0 0.7853996938995746
+  name "road intersection se"
+  startRoadsLength [
+    2.5
+  ]
+  startRoadBorderHeight 0.152
+  startRoadBorderWidth 2.5
+}
+RoadIntersection {
+  translation 0 0.03 -62
+  rotation 0 1 0 0.7853996938995746
+  name "road intersection s"
+  startRoadsLength [
+    2.5
+  ]
+  startRoadBorderHeight 0.152
+  startRoadBorderWidth 2.5
+}
+RoadIntersection {
+  translation 62 0.03 -62
+  rotation 0 1 0 0.7853996938995746
+  name "road intersection sw"
+  startRoadsLength [
+    2.5
+  ]
+  startRoadBorderHeight 0.152
+  startRoadBorderWidth 2.5
+}
+RoadIntersection {
+  translation 124 0.03 -62
+  rotation 0 1 0 0.7853996938995746
+  name "road intersection sw(1)"
+  startRoadsLength [
+    2.5
+  ]
+  startRoadBorderHeight 0.152
+  startRoadBorderWidth 2.5
+}
