@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% "First Name", "Last Name", "ASUID #"
+% "Jinxin", "Hu", "1207744664"
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Add your personal information in the line above
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -31,15 +31,28 @@ function prob_success = hw6_prob_of_success(n_tests,n_nodes,map,veh,start,goal,d
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Modify the code below this line
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+prob = 0;
+for i = 1:n_tests
+    rrt = RRTmap(veh,map,'root',start,'range',range,'npoints',floor(n_nodes));
+    rrt.plan(); % create the rrt
+    rrt.query(start,goal)
 
-% Sample code to use
-% rrt = RRTmap(veh,map,'root',start,'range',range,'npoints',floor(n_nodes));
-% rrt.plan(); % create the rrt
-% G = rrt.graph; % extract the graph 
-% % find the closest node to the goal, you will need this to compute the
-% % probability of success
-% v = G.closest(goal); 
-prob_success = [];
+    % find the closest node to the goal, you will need this to compute the
+    % probability of success
+    for v = 1 : size(rrt.graph.vertexlist,2)
+        v_xytheta = rrt.graph.coord(v);
+        d = norm(v_xytheta(1:2)'-goal(1:2));
+        if d < dist
+            prob = prob + 1;
+            break;
+        end
+    end
+    %[v,d] = rrt.graph.closest(goal);    % nearest vertex
+    %xnear = rrt.graph.coord(v)     % coord of nearest vertex
+    %d = rrt.graph.distance_metric(xnear, goal');
+    %d = norm(xnear(1:2)-goal(1:2));
+end
+prob_success = prob/n_tests;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % End of modifications

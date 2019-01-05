@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% "First Name", "Last Name", "ASUID #"
+% "Jinxin", "Hu", "1207744664"
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Add your personal information in the line above
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -39,9 +39,46 @@ results = zeros(1,length(scenarios));
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Modify the code below this line
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-better_RRT = 1;
-
+for k = 1:3
+    prob1(k) = 0;
+    prob2(k) = 0;
+    for t = 1 : n_tests     
+        rrt1 = RRTmap(veh,scenarios(k).map,'root',scenarios(k).start,'range',range,'npoints',floor(n_nodes));
+        rrt1.plan(); % create the rrt
+        G1 = rrt1.graph; % extract the graph
+        %[v1,d1] = G1.closest(scenarios(k).goal); % find the closest node to the goal
+        for v = 1 : size(G1.vertexlist,2)
+            v_xytheta1 = G1.coord(v);
+            d1 = norm(v_xytheta1(1:2)'-scenarios(k).goal(1:2));
+            if d1 < dist
+                prob1(k) = prob1(k) + 1;
+                break;
+            end
+        end
+        
+        rrt2 = RRTgoal(veh,scenarios(k).map,'root',scenarios(k).start,'goal',scenarios(k).goal,'range',range,'npoints',floor(n_nodes));
+        rrt2.plan(); % create the rrt
+        G2 = rrt2.graph; % extract the graph
+        %[v2,d2] = G2.closest(scenarios(k).goal); % find the closest node to the goal
+        for v = 1 : size(G2.vertexlist,2)
+            v_xytheta2 = G2.coord(v);
+            d2 = norm(v_xytheta2(1:2)'-scenarios(k).goal(1:2));
+            if d2 < dist
+                prob2(k) = prob2(k) + 1;
+                break;
+            end
+        end
+    end
+    if prob2(k) >= prob1(k)
+        better_RRT(k) = 1;
+    else 
+        better_RRT(k) = 0;
+    end
+    results(1,k)= prob1(k)/n_tests;
+    results(2,k)= prob2(k)/n_tests;
+end
+    
+    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % End of modifications
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
